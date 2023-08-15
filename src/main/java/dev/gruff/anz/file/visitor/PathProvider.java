@@ -1,4 +1,4 @@
-package dev.gruff.pomanz.scanner;
+package dev.gruff.anz.file.visitor;
 
 import java.util.Set;
 

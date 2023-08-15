@@ -1,9 +1,11 @@
-package dev.gruff.pomanz.scanner;
+package dev.gruff.anz.file.visitor;
 
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestFilePath {
 
@@ -13,8 +15,7 @@ public class TestFilePath {
 
         FileSystemPathProvider fp=new FileSystemPathProvider(new File(home,".m2"));
         Path p=fp.rootPath();
-        System.out.println(p.toURL());
-
+        assertEquals("file:/"+home+"/.m2",p.toURL().toExternalForm());
 
     }
 
@@ -25,4 +26,6 @@ public class TestFilePath {
         Set<Path> kids=fp.expand(p);
         assert(kids.isEmpty()==false);
     }
-}
+
+
+    }
