@@ -1,4 +1,5 @@
-# Maven POM based Analyser
+# Utility to visit files
 
-Finds poms and does some analysis
+Visitor for directory and website pages 
+
 
