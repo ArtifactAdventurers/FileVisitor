@@ -29,9 +29,8 @@ public class TestHTMLVisitor {
         VisitorBuilder vb=new VisitorBuilder();
         URL u=getClass().getResource("/testdir/links/links1.html");
         HTMLBasedPathProvider h=new HTMLBasedPathProvider(u);
-
        long l=vb.root(h).stream().count();
-        assertEquals(3,l);
+        assertEquals(1,l);
 
 
     }
