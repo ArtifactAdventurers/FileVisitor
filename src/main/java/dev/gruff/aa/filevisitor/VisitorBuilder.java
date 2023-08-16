@@ -1,5 +1,8 @@
 package dev.gruff.aa.filevisitor;
 
+
+import dev.gruff.aa.filevisitor.util.Log;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -9,6 +12,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 import java.util.function.Predicate;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 public class VisitorBuilder {
@@ -78,6 +82,7 @@ public class VisitorBuilder {
 
         public void visit() {
 
+            Log.log.trace("visit");
             long c = unpack(provider.rootPath()).count();
 
         }
@@ -85,8 +90,10 @@ public class VisitorBuilder {
 
         private Stream<Path> unpack(Path root) {
 
+            Log.log.trace("unpack "+root.toURL());
              if(root==null) throw new RuntimeException("null root");
             Set<Path> roots=provider.expand(root);
+            Log.log.trace("roots "+roots.size());
             if(roots.isEmpty()) {
 
                 // leaf node ..

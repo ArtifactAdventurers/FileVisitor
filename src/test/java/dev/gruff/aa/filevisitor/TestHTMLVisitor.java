@@ -17,7 +17,8 @@ public class TestHTMLVisitor {
             HTMLBasedPathProvider h=new HTMLBasedPathProvider(u);
 
             long c=vb.root(h).stream().count();
-            assert c==0;
+
+            assertEquals(1,c);
 
 
     }
@@ -30,7 +31,7 @@ public class TestHTMLVisitor {
         HTMLBasedPathProvider h=new HTMLBasedPathProvider(u);
 
        long l=vb.root(h).stream().count();
-        assert l==3;
+        assertEquals(3,l);
 
 
     }

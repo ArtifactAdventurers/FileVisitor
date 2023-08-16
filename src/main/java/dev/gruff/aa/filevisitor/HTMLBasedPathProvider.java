@@ -1,6 +1,7 @@
 package dev.gruff.aa.filevisitor;
 
 import dev.gruff.aa.filevisitor.util.HTMLHelper;
+import dev.gruff.aa.filevisitor.util.Log;
 
 import java.net.URL;
 import java.util.HashSet;
@@ -33,15 +34,24 @@ public class HTMLBasedPathProvider implements PathProvider{
     @Override
     public Set<Path> expand(Path root) {
 
+
+        Log.log.trace("expanding "+root.toURL());
         Set<Path> results=new HashSet<>();
+
         if(root instanceof HTMLPath) {
             HTMLPath hp= (HTMLPath) root;
             URL rootURL=hp.base;
-            Set<URL> links= HTMLHelper.getLinks(rootURL);
-            for(URL s:links) {
-                results.add(new HTMLPath(s));
-            }
+            if(rootURL.toExternalForm().endsWith("/")) {
+                Set<URL> links = HTMLHelper.getLinks(rootURL);
+                for (URL s : links) {
+                    Log.log.trace("child link " + s);
+                    results.add(new HTMLPath(s));
 
+                }
+
+            } else {
+                Log.log.trace("not a container "+root.toURL());
+            }
         }
         return results;
 

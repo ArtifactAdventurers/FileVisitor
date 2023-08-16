@@ -32,7 +32,7 @@ public class HTMLHelper {
         Set<URL> links=new HashSet<>();
         String external=loc.toExternalForm();
         String path= loc.getPath();
-        int l=path.length();
+       /* int l=path.length();
         String hprefix=external.substring(0,external.length()-l);
 
         if(path.endsWith("/")) path=path.substring(0,path.length()-1);
@@ -44,15 +44,18 @@ public class HTMLHelper {
         } else {
             prefix=hprefix+path.substring(0,lastSlash+1);
         }
-
+*/
+        String prefix=loc.toExternalForm();
+        if(!prefix.endsWith("/"))  prefix=prefix+"/";
+        final String pfx=prefix;
          Elements anchors = doc.select("a[href]");
         anchors.forEach( a-> {
             if(a.hasAttr("href")) {
                 String title=a.attr("href");
                 if(title.endsWith("/")) {
-                    if (!title.equalsIgnoreCase("../")) links.add(toURL(prefix+title));
+                    if (!title.equalsIgnoreCase("../")) links.add(toURL(pfx+title));
                 }
-                else links.add(toURL(prefix+title));
+                else links.add(toURL(pfx+title));
             }
         } );
         return links;
