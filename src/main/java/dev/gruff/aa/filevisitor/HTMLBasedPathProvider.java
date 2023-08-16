@@ -1,6 +1,6 @@
-package dev.gruff.anz.file.visitor;
+package dev.gruff.aa.filevisitor;
 
-import dev.gruff.anz.file.visitor.util.HTMLHelper;
+import dev.gruff.aa.filevisitor.util.HTMLHelper;
 
 import java.net.URL;
 import java.util.HashSet;

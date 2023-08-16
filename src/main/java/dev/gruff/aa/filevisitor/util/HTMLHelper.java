@@ -1,4 +1,4 @@
-package dev.gruff.anz.file.visitor.util;
+package dev.gruff.aa.filevisitor.util;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

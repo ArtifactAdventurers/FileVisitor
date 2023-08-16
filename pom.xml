@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.gruff.anz</groupId>
-    <artifactId>file.visitor</artifactId>
+    <groupId>dev.gruff.aa</groupId>
+    <artifactId>filevisitor</artifactId>
     <version>0.0.1</version>
 
     <licenses>
